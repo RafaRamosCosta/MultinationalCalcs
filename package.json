@@ -13,6 +13,7 @@
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "ts-node-dev src/GetWorkCoeficient.ts"
   }
 }
