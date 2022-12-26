@@ -5,9 +5,9 @@ export class GetWorkCoeficient {
 
   execute(): number {
     const coeficient: Coeficient = {
-      matutino: 13 / 100,
-      vespertino: 4 / 100,
-      noturno: 8 / 100,
+      matutino: 0.13,
+      vespertino: 0.04,
+      noturno: 0.08,
     };
 
     return coeficient[this.workShift];

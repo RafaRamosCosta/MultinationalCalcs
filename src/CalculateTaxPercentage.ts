@@ -12,8 +12,8 @@ export class CalculateTaxPercentage {
   execute(): number {
     const grossSalary = this.calculateGrossSalary.execute();
     const taxPercentage: TaxPercentage = {
-      operario: grossSalary < 945 ? 7 / 100 : 13 / 100,
-      gerente: grossSalary < 1520 ? 10 / 100 : 15 / 100,
+      operario: grossSalary < 945 ? 0.07 : 0.13,
+      gerente: grossSalary < 1520 ? 0.1 : 0.15,
     };
     return taxPercentage[this.employeeRole];
   }
