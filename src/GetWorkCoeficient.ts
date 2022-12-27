@@ -1,19 +1,13 @@
 type Coeficient = Record<string, number>;
 
 export class GetWorkCoeficient {
-  constructor(private workShift: string) {}
-
-  execute(): number {
+  execute(workShift: string): number {
     const coeficient: Coeficient = {
       matutino: 0.13,
       vespertino: 0.04,
       noturno: 0.08,
     };
 
-    return coeficient[this.workShift];
+    return coeficient[workShift];
   }
 }
-
-const getWorkCoeficient = new GetWorkCoeficient("noturno");
-
-getWorkCoeficient.execute();

@@ -1,25 +1,16 @@
-import { GetWorkCoeficient } from "./GetWorkCoeficient";
-
+interface ICalculateGrossSalaryProps {
+  minimumSalary: number;
+  workedHours: number;
+  coeficient: number;
+}
 export class CalculateGrossSalary {
-  constructor(
-    private salary: number,
-    private workedHours: number,
-    private workCoeficient: GetWorkCoeficient
-  ) {}
-
-  execute(): number {
-    const coeficient = this.workCoeficient.execute();
+  execute({
+    minimumSalary,
+    workedHours,
+    coeficient,
+  }: ICalculateGrossSalaryProps): number {
     if (!coeficient) throw new Error("Invalid work shift!");
 
-    return this.workedHours * (coeficient * this.salary);
+    return workedHours * (coeficient * minimumSalary);
   }
 }
-
-// const getWorkCoeficient = new GetWorkCoeficient("matutino");
-// const calculateGrossSalary = new CalculateGrossSalary(
-//   2500,
-//   8,
-//   getWorkCoeficient
-// );
-
-// console.log(calculateGrossSalary.execute());
