@@ -1,10 +1,10 @@
-import { CalculateFoodAid } from "./CalculateFoodAid";
-import { CalculateGratification } from "./CalculateGratification";
-import { CalculateGrossSalary } from "./CalculateGrossSalary";
-import { CalculateNetSalary } from "./CalculateNetSalary";
-import { CalculateTax } from "./CalculateTax";
-import { GetMinimumSalary } from "./GetMinimumSalary";
-import { GetWorkCoeficient } from "./GetWorkCoeficient";
+import { CalculateFoodAid } from "./useCases/calculateFoodAid/CalculateFoodAid";
+import { CalculateGratification } from "./useCases/calculateGratification/CalculateGratification";
+import { CalculateGrossSalary } from "./useCases/calculateGrossSalary/CalculateGrossSalary";
+import { CalculateNetSalary } from "./useCases/calculateNetSalary/CalculateNetSalary";
+import { CalculateTax } from "./useCases/calculateTax/CalculateTax";
+import { GetMinimumSalary } from "./useCases/getMinimumSalary/GetMinimumSalary";
+import { GetWorkCoeficient } from "./useCases/getWorkCoeficient/GetWorkCoeficient";
 
 const workShift = "matutino";
 const employeeRole = "operario";
