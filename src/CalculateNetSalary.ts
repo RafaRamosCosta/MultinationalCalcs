@@ -1,16 +1,16 @@
 interface ICalculateNetSalary {
   grossSalary: number;
-  taxPercentage: number;
+  tax: number;
   gratification: number;
   foodAid: number;
 }
 export class CalculateNetSalary {
   static execute({
     grossSalary,
-    taxPercentage,
+    tax,
     gratification,
     foodAid,
   }: ICalculateNetSalary): number {
-    return grossSalary - taxPercentage + gratification + foodAid;
+    return grossSalary - tax + gratification + foodAid;
   }
 }
