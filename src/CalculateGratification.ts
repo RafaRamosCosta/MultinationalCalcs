@@ -3,16 +3,16 @@ interface ICalculateGratificationProps {
   workedHours: number;
 }
 export class CalculateGratification {
-  private valueIfDoesntFulfill = 465;
-  private valueIfDoesFulfill = 1200;
-
-  execute({ workShift, workedHours }: ICalculateGratificationProps): number {
+  static execute({ workShift, workedHours }: ICalculateGratificationProps): number {
     const worksAtMorning = workShift === "matutino";
     const workedMoreThanEightyHours = workedHours > 80;
 
-    if (!worksAtMorning || !workedMoreThanEightyHours)
-      return this.valueIfDoesntFulfill;
+    const valueIfDoesntFulfill = 465;
+    const valueIfDoesFulfill = 1200;
 
-    return this.valueIfDoesFulfill;
+    if (!worksAtMorning || !workedMoreThanEightyHours)
+      return valueIfDoesntFulfill;
+
+    return valueIfDoesFulfill;
   }
 }
