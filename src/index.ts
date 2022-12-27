@@ -4,33 +4,33 @@ import { CalculateGrossSalary } from "./useCases/calculateGrossSalary/CalculateG
 import { CalculateNetSalary } from "./useCases/calculateNetSalary/CalculateNetSalary";
 import { CalculateTax } from "./useCases/calculateTax/CalculateTax";
 import { GetMinimumSalary } from "./useCases/getMinimumSalary/GetMinimumSalary";
-import { GetWorkCoeficient } from "./useCases/getWorkCoeficient/GetWorkCoeficient";
+import { GetWorkCoefficient } from "./useCases/getWorkCoefficient/GetWorkCoefficient";
 
-const workShift = "matutino";
+const workShifts = ["matutino"];
 const employeeRole = "operario";
 
 const minimumSalary = GetMinimumSalary.execute(employeeRole);
 
-const coeficient = GetWorkCoeficient.execute(workShift);
+const coefficient = GetWorkCoefficient.execute(workShifts);
 
 const workedHours = 70;
 
 const grossSalary = CalculateGrossSalary.execute({
   minimumSalary,
   workedHours,
-  coeficient,
+  coefficient,
 });
 
 const tax = CalculateTax.execute({ grossSalary, employeeRole });
 
 const gratification = CalculateGratification.execute({
-  workShift,
+  workShifts,
   workedHours,
 });
 
 const foodAid = CalculateFoodAid.execute({
   employeeRole,
-  coeficient,
+  coefficient,
   grossSalary,
 });
 
