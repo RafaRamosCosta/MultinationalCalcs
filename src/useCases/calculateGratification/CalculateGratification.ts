@@ -7,7 +7,15 @@ export class CalculateGratification {
     workShifts,
     workedHours,
   }: ICalculateGratificationProps): number {
+    const HOURS_IN_YEAR = 720;
+
     const worksAtMorning = workShifts.find((shift) => shift === "matutino");
+
+    const invalidWorkHours =
+      workedHours <= 0 || workedHours >= HOURS_IN_YEAR;
+
+    if (invalidWorkHours) throw new Error("Invalid working hours!");
+
     const workedMoreThanEightyHours = workedHours > 80;
 
     const valueIfDoesntFulfill = 465;
