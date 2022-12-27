@@ -1,7 +1,7 @@
 type Coeficient = Record<string, number>;
 
 export class GetWorkCoeficient {
-  execute(workShift: string): number {
+  static execute(workShift: string): number {
     const coeficient: Coeficient = {
       matutino: 0.13,
       vespertino: 0.04,

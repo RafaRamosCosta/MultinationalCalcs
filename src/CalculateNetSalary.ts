@@ -5,7 +5,7 @@ interface ICalculateNetSalary {
   foodAid: number;
 }
 export class CalculateNetSalary {
-  execute({
+  static execute({
     grossSalary,
     taxPercentage,
     gratification,

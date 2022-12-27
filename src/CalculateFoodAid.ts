@@ -4,7 +4,7 @@ interface ICalculateFoodAidProps {
   grossSalary: number;
 }
 export class CalculateFoodAid {
-  execute({
+  static execute({
     employeeRole,
     coeficient,
     grossSalary,

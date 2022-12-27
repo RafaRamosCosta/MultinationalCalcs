@@ -4,7 +4,7 @@ interface ICalculateGrossSalaryProps {
   coeficient: number;
 }
 export class CalculateGrossSalary {
-  execute({
+  static execute({
     minimumSalary,
     workedHours,
     coeficient,
