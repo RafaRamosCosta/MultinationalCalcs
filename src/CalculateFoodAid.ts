@@ -1,24 +1,20 @@
-import { CalculateGrossSalary } from "./CalculateGrossSalary";
-import { GetWorkCoeficient } from "./GetWorkCoeficient";
-
+interface ICalculateFoodAidProps {
+  employeeRole: string;
+  coeficient: number;
+  grossSalary: number;
+}
 export class CalculateFoodAid {
-  constructor(
-    private employeeRole: string,
-    private getWorkCoeficient: GetWorkCoeficient,
-    private calculateGrossSalary: CalculateGrossSalary
-  ) {}
-
-  execute(): number {
-    const isWorker = this.employeeRole === "operario";
-    const coeficient = this.getWorkCoeficient.execute();
+  execute({
+    employeeRole,
+    coeficient,
+    grossSalary,
+  }: ICalculateFoodAidProps): number {
+    const isWorker = employeeRole === "operario";
 
     const hasFulfilledRequirements = isWorker && coeficient >= 25;
-
-    const grossSalary = this.calculateGrossSalary.execute();
 
     if (!hasFulfilledRequirements) return grossSalary / 3;
 
     return grossSalary / 2;
   }
 }
-
