@@ -1,10 +1,13 @@
 interface ICalculateGratificationProps {
-  workShift: string;
+  workShifts: string[];
   workedHours: number;
 }
 export class CalculateGratification {
-  static execute({ workShift, workedHours }: ICalculateGratificationProps): number {
-    const worksAtMorning = workShift === "matutino";
+  static execute({
+    workShifts,
+    workedHours,
+  }: ICalculateGratificationProps): number {
+    const worksAtMorning = workShifts.find((shift) => shift === "matutino");
     const workedMoreThanEightyHours = workedHours > 80;
 
     const valueIfDoesntFulfill = 465;
