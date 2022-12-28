@@ -11,7 +11,7 @@ export class CalculateGrossSalary {
     workedHours,
     workCoefficient,
   }: ICalculateGrossSalaryProps): number {
-    if (!workCoefficient) throw new AppError("Invalid work shift!");
+    if (!workCoefficient) throw new AppError("Invalid coeficient!");
 
     return workedHours * (workCoefficient * minimumSalary);
   }
