@@ -11,7 +11,10 @@ export class CalculateGrossSalary {
     workedHours,
     workCoefficient,
   }: ICalculateGrossSalaryProps): number {
-    if (!workCoefficient) throw new AppError("Invalid coeficient!");
+    const HOURS_IN_YEAR = 720;
+    const invalidWorkHours = workedHours <= 0 || workedHours >= HOURS_IN_YEAR;
+
+    if (invalidWorkHours) throw new AppError("Invalid working hours!");
 
     return workedHours * (workCoefficient * minimumSalary);
   }
