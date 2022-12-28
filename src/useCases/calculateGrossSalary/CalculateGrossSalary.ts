@@ -1,4 +1,4 @@
-import { AppError } from "../../erros/AppError";
+import { AppError } from "../../errors/AppError";
 
 interface ICalculateGrossSalaryProps {
   minimumSalary: number;

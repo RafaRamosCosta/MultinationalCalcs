@@ -1,4 +1,4 @@
-import { AppError } from "../../erros/AppError";
+import { AppError } from "../../errors/AppError";
 
 interface ICalculateGratificationProps {
   workShifts: string[];
@@ -13,8 +13,7 @@ export class CalculateGratification {
 
     const worksAtMorning = workShifts.find((shift) => shift === "matutino");
 
-    const invalidWorkHours =
-      workedHours <= 0 || workedHours >= HOURS_IN_YEAR;
+    const invalidWorkHours = workedHours <= 0 || workedHours >= HOURS_IN_YEAR;
 
     if (invalidWorkHours) throw new AppError("Invalid working hours!");
 
