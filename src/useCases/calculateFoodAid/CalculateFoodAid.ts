@@ -1,17 +1,17 @@
 interface ICalculateFoodAidProps {
   employeeRole: string;
-  coefficient: number;
+  workCoefficient: number;
   grossSalary: number;
 }
 export class CalculateFoodAid {
   static execute({
     employeeRole,
-    coefficient,
+    workCoefficient,
     grossSalary,
   }: ICalculateFoodAidProps): number {
     const isWorker = employeeRole === "operario";
 
-    const hasFulfilledRequirements = isWorker && coefficient >= 0.25;
+    const hasFulfilledRequirements = isWorker && workCoefficient >= 0.25;
 
     if (!hasFulfilledRequirements) return grossSalary / 3;
 

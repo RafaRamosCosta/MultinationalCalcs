@@ -5,7 +5,7 @@ describe("Calculate gross salary", () => {
     const grossSalary = CalculateGrossSalary.execute({
       minimumSalary: 800,
       workedHours: 75,
-      coefficient: 0.13,
+      workCoefficient: 0.13,
     });
     expect(grossSalary).toBeTruthy();
   });
@@ -15,7 +15,7 @@ describe("Calculate gross salary", () => {
       CalculateGrossSalary.execute({
         minimumSalary: 800,
         workedHours: 75,
-        coefficient: 0,
+        workCoefficient: 0,
       })
     ).toThrowError();
   });

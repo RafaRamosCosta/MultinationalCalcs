@@ -1,16 +1,16 @@
 interface ICalculateGrossSalaryProps {
   minimumSalary: number;
   workedHours: number;
-  coefficient: number;
+  workCoefficient: number;
 }
 export class CalculateGrossSalary {
   static execute({
     minimumSalary,
     workedHours,
-    coefficient,
+    workCoefficient,
   }: ICalculateGrossSalaryProps): number {
-    if (!coefficient) throw new Error("Invalid work shift!");
+    if (!workCoefficient) throw new Error("Invalid work shift!");
 
-    return workedHours * (coefficient * minimumSalary);
+    return workedHours * (workCoefficient * minimumSalary);
   }
 }

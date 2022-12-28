@@ -8,13 +8,13 @@ export class GetWorkCoefficient {
       noturno: 0.08,
     };
 
-    const coeficcient = workShifts.reduce(
+    const workCoefficient = workShifts.reduce(
       (acc, workShift) => (acc += coefficients[workShift]),
       0
     );
     
-    if (!coeficcient) throw new Error("Invalid work shift(s)!");
+    if (!workCoefficient) throw new Error("Invalid work shift(s)!");
 
-    return coeficcient;
+    return workCoefficient;
   }
 }

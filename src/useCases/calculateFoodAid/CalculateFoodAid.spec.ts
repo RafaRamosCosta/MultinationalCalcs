@@ -4,7 +4,7 @@ describe("Calculate food aid", () => {
   it("should be half of the gross amount if the employeeRole is 'operario' and the coeficient is higher than 25%", () => {
     const foodAid = CalculateFoodAid.execute({
       employeeRole: "operario",
-      coefficient: 0.25,
+      workCoefficient: 0.25,
       grossSalary: 2000,
     });
     expect(foodAid).toEqual(1000);
@@ -13,7 +13,7 @@ describe("Calculate food aid", () => {
   it("should be a third of the gross amount if the employeeRole is 'gerente'", () => {
     const foodAid = CalculateFoodAid.execute({
       employeeRole: "gerente",
-      coefficient: 0.25,
+      workCoefficient: 0.25,
       grossSalary: 2000,
     });
     expect(foodAid).toEqual(2000 / 3);
@@ -22,7 +22,7 @@ describe("Calculate food aid", () => {
   it("should be a third of the gross amount if the coeficient is lower than 25%", () => {
     const foodAid = CalculateFoodAid.execute({
       employeeRole: "operario",
-      coefficient: 0.2,
+      workCoefficient: 0.2,
       grossSalary: 2000,
     });
     expect(foodAid).toEqual(2000 / 3);
