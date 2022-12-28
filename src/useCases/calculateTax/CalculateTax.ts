@@ -1,4 +1,4 @@
-import { AppError } from "../../errors/AppError";
+import { AppError } from "@errors/AppError";
 
 type TaxPercentage = Record<string, number>;
 
@@ -15,7 +15,7 @@ export class CalculateTax {
     const invalidEmployeeRole = !taxPercentage[employeeRole];
 
     if (invalidEmployeeRole) throw new AppError("Invalid employee role!");
-    
+
     return taxPercentage[employeeRole];
   }
 }

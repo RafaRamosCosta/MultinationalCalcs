@@ -1,4 +1,4 @@
-import { AppError } from "../../errors/AppError";
+import { AppError } from "@errors/AppError";
 import { GetWorkCoefficient } from "./GetWorkCoefficient";
 
 describe("Get work coeficient", () => {

@@ -1,4 +1,3 @@
-import { AppError } from "../../errors/AppError";
 import { CalculateGratification } from "./CalculateGratification";
 
 describe("Calculate gratification", () => {
