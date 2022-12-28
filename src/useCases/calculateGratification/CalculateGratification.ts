@@ -9,22 +9,16 @@ export class CalculateGratification {
     workShifts,
     workedHours,
   }: ICalculateGratificationProps): number {
-    const HOURS_IN_YEAR = 720;
+    const VALUE_IF_DOESNT_FULFILL = 465;
+    const VALUE_IF_DOES_FULFILL = 1200;
 
     const worksAtMorning = workShifts.find((shift) => shift === "matutino");
 
-    const invalidWorkHours = workedHours <= 0 || workedHours >= HOURS_IN_YEAR;
-
-    if (invalidWorkHours) throw new AppError("Invalid working hours!");
-
     const workedMoreThanEightyHours = workedHours > 80;
 
-    const valueIfDoesntFulfill = 465;
-    const valueIfDoesFulfill = 1200;
-
     if (!worksAtMorning || !workedMoreThanEightyHours)
-      return valueIfDoesntFulfill;
+      return VALUE_IF_DOESNT_FULFILL;
 
-    return valueIfDoesFulfill;
+    return VALUE_IF_DOES_FULFILL;
   }
 }
