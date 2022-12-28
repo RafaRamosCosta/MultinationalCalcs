@@ -25,13 +25,4 @@ describe("Calculate gratification", () => {
     });
     expect(gratification).toEqual(465.0);
   });
-
-  it("should trhow an error if the worked hours are less than or equal to 0", () => {
-    expect(async () =>
-      CalculateGratification.execute({
-        workShifts: ["matutino"],
-        workedHours: 0,
-      })
-    ).rejects.toBeInstanceOf(AppError);
-  });
 });
