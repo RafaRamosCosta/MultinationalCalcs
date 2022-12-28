@@ -1,3 +1,4 @@
+import { AppError } from "../../erros/AppError";
 import { GetWorkCoefficient } from "./GetWorkCoefficient";
 
 describe("Get work coeficient", () => {
@@ -16,8 +17,8 @@ describe("Get work coeficient", () => {
   });
 
   it("should throw an error if the workShift passed is invalid", () => {
-    expect(() =>
+    expect(async () =>
       GetWorkCoefficient.execute(["invalid workShift"])
-    ).toThrowError();
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

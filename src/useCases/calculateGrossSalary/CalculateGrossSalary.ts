@@ -1,3 +1,5 @@
+import { AppError } from "../../erros/AppError";
+
 interface ICalculateGrossSalaryProps {
   minimumSalary: number;
   workedHours: number;
@@ -9,7 +11,7 @@ export class CalculateGrossSalary {
     workedHours,
     workCoefficient,
   }: ICalculateGrossSalaryProps): number {
-    if (!workCoefficient) throw new Error("Invalid work shift!");
+    if (!workCoefficient) throw new AppError("Invalid work shift!");
 
     return workedHours * (workCoefficient * minimumSalary);
   }

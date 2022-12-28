@@ -1,3 +1,4 @@
+import { AppError } from "../../erros/AppError";
 import { CalculateGratification } from "./CalculateGratification";
 
 describe("Calculate gratification", () => {
@@ -26,11 +27,11 @@ describe("Calculate gratification", () => {
   });
 
   it("should trhow an error if the worked hours are less than or equal to 0", () => {
-    expect(() =>
+    expect(async () =>
       CalculateGratification.execute({
         workShifts: ["matutino"],
         workedHours: 0,
       })
-    ).toThrowError();
+    ).rejects.toBeInstanceOf(AppError);
   });
 });

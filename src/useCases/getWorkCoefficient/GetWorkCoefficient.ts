@@ -1,3 +1,5 @@
+import { AppError } from "../../erros/AppError";
+
 type Coeficients = Record<string, number>;
 
 export class GetWorkCoefficient {
@@ -12,8 +14,8 @@ export class GetWorkCoefficient {
       (acc, workShift) => (acc += coefficients[workShift]),
       0
     );
-    
-    if (!workCoefficient) throw new Error("Invalid work shift(s)!");
+
+    if (!workCoefficient) throw new AppError("Invalid work shift(s)!");
 
     return workCoefficient;
   }
