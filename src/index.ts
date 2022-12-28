@@ -1,13 +1,13 @@
-import { CalculateFoodAid } from "./useCases/calculateFoodAid/CalculateFoodAid";
-import { CalculateGratification } from "./useCases/calculateGratification/CalculateGratification";
-import { CalculateGrossSalary } from "./useCases/calculateGrossSalary/CalculateGrossSalary";
-import { CalculateNetSalary } from "./useCases/calculateNetSalary/CalculateNetSalary";
-import { CalculateTax } from "./useCases/calculateTax/CalculateTax";
-import { GetMinimumSalary } from "./useCases/getMinimumSalary/GetMinimumSalary";
-import { GetWorkCoefficient } from "./useCases/getWorkCoefficient/GetWorkCoefficient";
+import { CalculateFoodAid } from "@useCases/calculateFoodAid/CalculateFoodAid";
+import { CalculateGratification } from "@useCases/calculateGratification/CalculateGratification";
+import { CalculateGrossSalary } from "@useCases/calculateGrossSalary/CalculateGrossSalary";
+import { CalculateNetSalary } from "@useCases/calculateNetSalary/CalculateNetSalary";
+import { CalculateTax } from "@useCases/calculateTax/CalculateTax";
+import { GetMinimumSalary } from "@useCases/getMinimumSalary/GetMinimumSalary";
+import { GetWorkCoefficient } from "@useCases/getWorkCoefficient/GetWorkCoefficient";
 
-const workShifts = ["vespertino"];
-const employeeRole = "gerente";
+const workShifts = ["matutino"];
+const employeeRole = "operario";
 
 const minimumSalary = GetMinimumSalary.execute(employeeRole);
 
@@ -62,7 +62,6 @@ Object.keys(employee).forEach((key) => {
       ? (employee[key] = Intl.NumberFormat("pt-BR", {
           style: "percent",
         }).format(employee[key]))
-        
       : (employee[key] = Intl.NumberFormat("pt-BR", {
           style: "currency",
           currency: "BRL",
