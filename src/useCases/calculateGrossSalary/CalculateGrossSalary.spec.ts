@@ -11,13 +11,14 @@ describe("Calculate gross salary", () => {
     expect(grossSalary).toBeTruthy();
   });
 
-  it("should throw an error if the coeficient is 0", () => {
+  it("should throw an error if the worked hours are invalid", () => {
     expect(async () =>
       CalculateGrossSalary.execute({
         minimumSalary: 800,
-        workedHours: 75,
-        workCoefficient: 0,
+        workedHours: 0,
+        workCoefficient: 0.13,
       })
     ).rejects.toBeInstanceOf(AppError);
+
   });
 });
