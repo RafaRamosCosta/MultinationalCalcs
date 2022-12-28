@@ -6,19 +6,19 @@ import { CalculateTax } from "./useCases/calculateTax/CalculateTax";
 import { GetMinimumSalary } from "./useCases/getMinimumSalary/GetMinimumSalary";
 import { GetWorkCoefficient } from "./useCases/getWorkCoefficient/GetWorkCoefficient";
 
-const workShifts = ["matutino"];
-const employeeRole = "operario";
+const workShifts = ["vespertino"];
+const employeeRole = "gerente";
 
 const minimumSalary = GetMinimumSalary.execute(employeeRole);
 
-const coefficient = GetWorkCoefficient.execute(workShifts);
+const workCoefficient = GetWorkCoefficient.execute(workShifts);
 
-const workedHours = 70;
+const workedHours = 80;
 
 const grossSalary = CalculateGrossSalary.execute({
   minimumSalary,
   workedHours,
-  coefficient,
+  workCoefficient,
 });
 
 const tax = CalculateTax.execute({ grossSalary, employeeRole });
@@ -30,7 +30,7 @@ const gratification = CalculateGratification.execute({
 
 const foodAid = CalculateFoodAid.execute({
   employeeRole,
-  coefficient,
+  workCoefficient,
   grossSalary,
 });
 
@@ -41,4 +41,33 @@ const netSalary = CalculateNetSalary.execute({
   foodAid,
 });
 
-console.log(`Net Salary: R$ ${netSalary.toFixed(2)}`);
+let employee: Record<string, any> = {};
+
+Object.assign(employee, {
+  workShifts,
+  employeeRole,
+  minimumSalary,
+  workCoefficient,
+  workedHours,
+  grossSalary,
+  tax,
+  gratification,
+  foodAid,
+  netSalary,
+});
+
+Object.keys(employee).forEach((key) => {
+  if (typeof employee[key] === "number") {
+    key === "coefficient" || key === "tax"
+      ? (employee[key] = Intl.NumberFormat("pt-BR", {
+          style: "percent",
+        }).format(employee[key]))
+        
+      : (employee[key] = Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }).format(employee[key]));
+  }
+});
+
+console.log(employee);
