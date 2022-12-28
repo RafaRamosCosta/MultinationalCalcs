@@ -1,3 +1,4 @@
+import { AppError } from "../../errors/AppError";
 import { CalculateTax } from "./CalculateTax";
 
 describe("Calculate tax", () => {
@@ -31,5 +32,14 @@ describe("Calculate tax", () => {
       employeeRole: "gerente",
     });
     expect(tax).toEqual(0.1);
+  });
+
+  it("should throw an error if the given employeeRole does not exist", () => {
+    expect(async () =>
+      CalculateTax.execute({
+        grossSalary: 1400,
+        employeeRole: "invalid employeeRole",
+      })
+    ).rejects.toBeInstanceOf(AppError);
   });
 });
