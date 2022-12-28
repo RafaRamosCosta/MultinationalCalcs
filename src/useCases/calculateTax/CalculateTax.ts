@@ -1,3 +1,5 @@
+import { AppError } from "../../errors/AppError";
+
 type TaxPercentage = Record<string, number>;
 
 interface ICalculateTaxProps {
@@ -10,6 +12,10 @@ export class CalculateTax {
       operario: grossSalary < 945 ? 0.07 : 0.13,
       gerente: grossSalary < 1520 ? 0.1 : 0.15,
     };
+    const invalidEmployeeRole = !taxPercentage[employeeRole];
+
+    if (invalidEmployeeRole) throw new AppError("Invalid employee role!");
+    
     return taxPercentage[employeeRole];
   }
 }
