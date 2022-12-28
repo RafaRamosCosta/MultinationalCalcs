@@ -1,5 +1,3 @@
-import { AppError } from "../../errors/AppError";
-
 interface ICalculateGratificationProps {
   workShifts: string[];
   workedHours: number;
