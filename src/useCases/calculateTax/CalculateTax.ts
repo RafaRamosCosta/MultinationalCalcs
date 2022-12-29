@@ -17,6 +17,6 @@ export class CalculateTax {
 
     if (invalidEmployeeRole) throw new AppError("Invalid employee role!");
 
-    return FormatDecimalPlaces.execute(taxPercentage[employeeRole]);
+    return taxPercentage[employeeRole];
   }
 }
