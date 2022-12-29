@@ -17,6 +17,6 @@ export class GetWorkCoefficient {
       return (acc += coefficients[workShift]);
     }, 0);
 
-    return FormatDecimalPlaces.execute(workCoefficient);
+    return workCoefficient;
   }
 }
