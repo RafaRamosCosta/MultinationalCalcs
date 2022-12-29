@@ -56,17 +56,17 @@ Object.assign(employee, {
   netSalary,
 });
 
-// Object.keys(employee).forEach((key) => {
-//   if (typeof employee[key] === "number" && key !== "workedHours") {
-//     key === "workCoefficient" || key === "tax"
-//       ? (employee[key] = Intl.NumberFormat("pt-BR", {
-//           style: "percent",
-//         }).format(employee[key]))
-//       : (employee[key] = Intl.NumberFormat("pt-BR", {
-//           style: "currency",
-//           currency: "BRL",
-//         }).format(employee[key]));
-//   }
-// });
+Object.keys(employee).forEach((key) => {
+  if (typeof employee[key] === "number" && key !== "workedHours") {
+    key === "workCoefficient" || key === "tax"
+      ? (employee[key] = Intl.NumberFormat("pt-BR", {
+          style: "percent",
+        }).format(employee[key]))
+      : (employee[key] = Intl.NumberFormat("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        }).format(employee[key]));
+  }
+});
 
 console.log(employee);
