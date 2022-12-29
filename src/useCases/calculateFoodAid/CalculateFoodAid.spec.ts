@@ -1,3 +1,4 @@
+import { FormatDecimalPlaces } from "@utils/FormatDecimalPlaces";
 import { CalculateFoodAid } from "./CalculateFoodAid";
 
 describe("Calculate food aid", () => {
@@ -7,7 +8,7 @@ describe("Calculate food aid", () => {
       workCoefficient: 0.25,
       grossSalary: 2000,
     });
-    expect(foodAid).toEqual(1000);
+    expect(foodAid).toEqual(2000 / 2);
   });
 
   it("should be a third of the gross amount if the employeeRole is 'gerente'", () => {
@@ -16,7 +17,7 @@ describe("Calculate food aid", () => {
       workCoefficient: 0.25,
       grossSalary: 2000,
     });
-    expect(foodAid).toEqual(2000 / 3);
+    expect(foodAid).toEqual(FormatDecimalPlaces.execute(2000 / 3));
   });
 
   it("should be a third of the gross amount if the coeficient is lower than 25%", () => {
@@ -25,6 +26,6 @@ describe("Calculate food aid", () => {
       workCoefficient: 0.2,
       grossSalary: 2000,
     });
-    expect(foodAid).toEqual(2000 / 3);
+    expect(foodAid).toEqual(FormatDecimalPlaces.execute(2000 / 3));
   });
 });
