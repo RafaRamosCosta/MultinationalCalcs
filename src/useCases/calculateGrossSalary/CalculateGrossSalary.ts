@@ -1,4 +1,5 @@
 import { AppError } from "@errors/AppError";
+import { FormatDecimalPlaces } from "@utils/FormatDecimalPlaces";
 
 interface ICalculateGrossSalaryProps {
   minimumSalary: number;
@@ -16,6 +17,8 @@ export class CalculateGrossSalary {
 
     if (invalidWorkHours) throw new AppError("Invalid working hours!");
 
-    return workedHours * (workCoefficient * minimumSalary);
+    return FormatDecimalPlaces.execute(
+      workedHours * (workCoefficient * minimumSalary)
+    );
   }
 }

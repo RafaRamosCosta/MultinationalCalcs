@@ -1,3 +1,5 @@
+import { FormatDecimalPlaces } from "@utils/FormatDecimalPlaces";
+
 interface ICalculateFoodAidProps {
   employeeRole: string;
   workCoefficient: number;
@@ -13,8 +15,9 @@ export class CalculateFoodAid {
 
     const hasFulfilledRequirements = isWorker && workCoefficient >= 0.25;
 
-    if (!hasFulfilledRequirements) return grossSalary / 3;
+    if (!hasFulfilledRequirements)
+      return FormatDecimalPlaces.execute(grossSalary / 3);
 
-    return grossSalary / 2;
+    return FormatDecimalPlaces.execute(grossSalary / 2);
   }
 }

@@ -1,3 +1,5 @@
+import { FormatDecimalPlaces } from "@utils/FormatDecimalPlaces";
+
 interface ICalculateNetSalary {
   grossSalary: number;
   tax: number;
@@ -11,6 +13,8 @@ export class CalculateNetSalary {
     gratification,
     foodAid,
   }: ICalculateNetSalary): number {
-    return grossSalary - tax + gratification + foodAid;
+    return FormatDecimalPlaces.execute(
+      grossSalary - tax + gratification + foodAid
+    );
   }
 }

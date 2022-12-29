@@ -1,4 +1,5 @@
 import { AppError } from "@errors/AppError";
+import { FormatDecimalPlaces } from "@utils/FormatDecimalPlaces";
 
 type Coeficients = Record<string, number>;
 
@@ -16,6 +17,6 @@ export class GetWorkCoefficient {
       return (acc += coefficients[workShift]);
     }, 0);
 
-    return workCoefficient;
+    return FormatDecimalPlaces.execute(workCoefficient);
   }
 }

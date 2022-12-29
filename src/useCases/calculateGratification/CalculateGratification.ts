@@ -1,3 +1,5 @@
+import { FormatDecimalPlaces } from "@utils/FormatDecimalPlaces";
+
 interface ICalculateGratificationProps {
   workShifts: string[];
   workedHours: number;
@@ -15,8 +17,8 @@ export class CalculateGratification {
     const workedMoreThanEightyHours = workedHours > 80;
 
     if (!worksAtMorning || !workedMoreThanEightyHours)
-      return VALUE_IF_DOESNT_FULFILL;
+      return FormatDecimalPlaces.execute(VALUE_IF_DOESNT_FULFILL);
 
-    return VALUE_IF_DOES_FULFILL;
+    return FormatDecimalPlaces.execute(VALUE_IF_DOES_FULFILL);
   }
 }

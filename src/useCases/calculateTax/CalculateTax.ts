@@ -1,4 +1,5 @@
 import { AppError } from "@errors/AppError";
+import { FormatDecimalPlaces } from "@utils/FormatDecimalPlaces";
 
 type TaxPercentage = Record<string, number>;
 
@@ -16,6 +17,6 @@ export class CalculateTax {
 
     if (invalidEmployeeRole) throw new AppError("Invalid employee role!");
 
-    return taxPercentage[employeeRole];
+    return FormatDecimalPlaces.execute(taxPercentage[employeeRole]);
   }
 }
