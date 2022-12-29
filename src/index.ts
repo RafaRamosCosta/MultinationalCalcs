@@ -58,7 +58,7 @@ Object.assign(employee, {
 
 Object.keys(employee).forEach((key) => {
   if (typeof employee[key] === "number") {
-    key === "coefficient" || key === "tax"
+    key === "workCoefficient" || key === "tax"
       ? (employee[key] = Intl.NumberFormat("pt-BR", {
           style: "percent",
         }).format(employee[key]))
